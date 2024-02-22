@@ -1,0 +1,18 @@
+[
+  {
+    "role": "Incoming SDE Intern",
+    "organisation": "Perfios",
+    "startDate": "April, 2024",
+    "endDate": " ",
+    "experiences": ["Will be joining the Product Engg team"],
+    "imageSrc": "history/perfios.png"
+  },
+  {
+    "role": "Web Development Intern",
+    "organisation": "CaterNinja",
+    "startDate": "Jul, 2023",
+    "endDate": "Sept, 2023",
+    "experiences": ["Client-side web development using MongoDB", "UX with Hotjar analytics", "Bug Identification & resolution"],
+    "imageSrc": "history/caterninja1.png"
+  }
+]

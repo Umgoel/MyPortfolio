@@ -1,0 +1,24 @@
+[
+  {
+    "title": "ActiBud",
+    "description": "Android app enabling efficient monitoring and management of students' activity points as per AICTE and other proctor tasks.",
+    "skills": ["Kotlin", "Firebase", "Android Studio"],
+    "source": "https://github.com/Umgoel/ActiBud-App"
+  },
+  {
+    "title": "HelpingHands",
+    "imageSrc": "projects/project.png",
+    "description": "A Real-time sign language detection website using Convolutional Neural Networks (CNN) to accurately recognise sign language gestures.",
+    "skills": ["Machine Learning", "OpenCV", "Streamlit", "Mediapipe"],
+    "demo": "https://www.example.com",
+    "source": "https://github.com/Umgoel/SignLanguageDetection_ProjectWork4/tree/main"
+  },
+  {
+    "title": "Automated Dysgraphia Detection (in progress)",
+    "imageSrc": "projects/project.png",
+    "description": "Capstone project, focusing on early detection of dysgraphia in primary and middle school students.",
+    "skills": ["Computer Vision", "MobileNetV2", "CNN"],
+    "demo": "https://www.example.com",
+    "source": "https://drive.google.com/file/d/1yrSv5Y-YScQqc2dfmU8lgva2TldRaHjI/view?usp=sharing"
+  }
+]
