@@ -12,7 +12,7 @@ const Hero = () => {
       <div className={styles.content}>
         <h1 className={styles.title}>Hi, I'm Umang Goel!</h1>
         <p className={styles.description}>
-          I'm 75% of a CS engineer at BMSCE, Bengaluru. I enjoy making websites and
+          I'm 90% of a CS engineer at BMSCE, Bengaluru. I enjoy making websites and
           applications. My downtime? Running or embracing photography.
         </p>
         <a
