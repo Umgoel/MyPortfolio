@@ -25,3 +25,4 @@ dist-ssr
 
 #Updates file to be ignored
 Updates
+.env

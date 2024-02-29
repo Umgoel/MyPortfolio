@@ -5,21 +5,33 @@ import Navbar from "./components/Navbar/Navbar";
 import Experience from "./components/Experience/Experience";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
-import { SpeedInsights } from "@vercel/speed-insights/react"
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import Photos from "./Photos/Photos";
+import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className={styles.App}>
-      <Navbar />
-      <Hero />
-      <Projects />
-      <Experience />
-      <About />
-      <Contact />
-      <SpeedInsights/>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/Photos" element={<Photos />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
+
+const Home = () => (
+  <>
+    <Hero />
+    <Projects />
+    <Experience />
+    <About />
+    <Contact />
+    <SpeedInsights />
+  </>
+);
 
 export default App;

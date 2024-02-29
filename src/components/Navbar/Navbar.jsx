@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import { getImageURL } from "../../utils";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,6 +37,9 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#contact">Contact Me</a>
+          </li>
+          <li>
+            <Link to="/Photos">Photos</Link>
           </li>
         </ul>
       </div>
