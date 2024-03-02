@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/Photos" element={<Photos />} />
+          <Route path="/Photos/*" element={<Photos />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>

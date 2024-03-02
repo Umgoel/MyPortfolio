@@ -11,7 +11,7 @@ export default function GetImages(params) {
       );
       const data = await response.json();
       setImages(data);
-      console.log(data);
+      //   console.log(data);
     };
 
     fetchImages();
