@@ -5,12 +5,13 @@ export default function GetImages(params) {
   useEffect(() => {
     const fetchImages = async () => {
       const response = await fetch(
-        `https://api.unsplash.com/photos?client_id=${
+        `https://api.unsplash.com/users/umgoel/photos?client_id=${
           import.meta.env.VITE_App_Unsplash_API_key
         }`
       );
       const data = await response.json();
       setImages(data);
+      console.log(data);
     };
 
     fetchImages();
@@ -24,7 +25,7 @@ export default function GetImages(params) {
         </h1>
       ) : (
         <section className="px-5 container mx-auto">
-          <h1 className="font-bold text-3xl md:text-4xl lg:text-6xl my-10 lg:mt-20 lg: mb-16 capitalizek">
+          <h1 className="font-bold text-3xl md:text-4xl lg:text-6xl my-10 lg:mt-20 lg: mb-16 capitalize">
             Recommended for you
           </h1>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -34,6 +35,7 @@ export default function GetImages(params) {
           </div>
         </section>
       )}
+      <div className="h-40"></div>
     </>
   );
 }

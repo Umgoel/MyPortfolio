@@ -7,12 +7,12 @@ const Photos = () => {
   return (
     <Routes>
       {/* Define your Route components here */}
-      <Route path="/" element={<Chumma />} />
+      <Route path="/" element={<DisplayPic />} />
     </Routes>
   );
 };
 
-const Chumma = () => (
+const DisplayPic = () => (
   <>
     {/* <h1>Hello World</h1> */}
     <GetImages />
