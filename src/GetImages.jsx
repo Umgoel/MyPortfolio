@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Image from "./Image";
+import ImageData from "./ImageData";
 export default function GetImages(params) {
   const [images, setImages] = useState([]);
+  const [total, setTotal] = useState([]);
   useEffect(() => {
+    //store the photo ids in an array and use them to fetch the photos stats  -GET /photos/:id/statistics
+
     const fetchImages = async () => {
       const response = await fetch(
-        `https://api.unsplash.com/users/umgoel/photos?client_id=${
+        `https://api.unsplash.com/users/umgoel/photos?order_by=views&per_page=40&client_id=${
           import.meta.env.VITE_App_Unsplash_API_key
         }`
       );
       const data = await response.json();
       setImages(data);
-      //   console.log(data);
+      data.forEach(async (image) => {
+        const statsResponse = await fetch(
+          `https://api.unsplash.com/photos/${image.id}/statistics?client_id=${
+            import.meta.env.VITE_App_Unsplash_API_key
+          }`
+        );
+        const statsData = await statsResponse.json();
+        setTotal(statsData);
+        console.log(statsData.views.total);
+      });
     };
 
     fetchImages();
@@ -32,9 +45,13 @@ export default function GetImages(params) {
             {images.map((image) => (
               <Image key={image.id} {...image} />
             ))}
+            {/* {total.map((image) => (
+              <ImageData key={image.id} {...image} />
+            ))} */}
           </div>
         </section>
       )}
+      {/* footer */}
       <div className="h-40"></div>
     </>
   );

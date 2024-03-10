@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 export default function Image(props) {
+    // console.log(props);
   return (
     <>
       <article className="shadow-md bg-white rounded-3xl p-5">
@@ -28,3 +29,4 @@ export default function Image(props) {
     </>
   );
 }
+
