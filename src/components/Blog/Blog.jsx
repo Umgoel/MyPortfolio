@@ -1,32 +1,43 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-const Blog = () => {
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+function Blog() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const baseURL = "http://localhost:5000"; 
+        const response = await axios.get(`${baseURL}/api/getAll`);
+        const strippedData = response.data.map((item) => {
+          const datePosted = new Date(item.datePosted);
+          // Extract date part
+          const dateOnly = datePosted.toISOString().split("T")[0];
+          // Return updated item
+          return { ...item, datePosted: dateOnly };
+        });
+
+        setData(strippedData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
-      Blog Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis, quae
-      ipsam libero explicabo eaque quo blanditiis recusandae sequi, temporibus
-      eum ratione autem vel doloremque, impedit aliquam sed reiciendis. Sed
-      explicabo sunt vel. Molestias, distinctio nam totam temporibus ab
-      nesciunt, dolores repellat quam eligendi iure voluptatibus voluptas.
-      Itaque eos doloribus odio cum repudiandae laborum quis totam. Eum qui
-      ipsam dolor numquam, dolore adipisci suscipit optio tempora molestias quos
-      ducimus obcaecati quas cumque commodi voluptas ea magnam maiores unde
-      accusantium ullam. Corporis id dignissimos voluptates optio dicta ex nobis
-      ad modi non iure architecto ullam beatae aspernatur praesentium esse,
-      consequatur nisi ipsa cum perferendis, consectetur soluta, odio enim.
-      Soluta dolorem tempora ratione non pariatur. Blanditiis reprehenderit
-      temporibus necessitatibus libero similique odit laborum! Fugit
-      voluptatibus mollitia tempora unde laborum perferendis sint eaque
-      excepturi temporibus debitis? Voluptas esse atque repellat odio maiores
-      unde alias reprehenderit! Harum, veniam itaque! Tempora fuga quae, fugit
-      harum sequi repudiandae aliquam nostrum repellendus. Sequi inventore nemo
-      ut placeat. Cupiditate dolor, sapiente, consectetur unde impedit eos
-      laboriosam ducimus sequi recusandae quidem aliquid aut, voluptatem
-      suscipit iure reprehenderit sint obcaecati vel in illo minus. Voluptas,
-      nisi reprehenderit ipsam doloribus esse asperiores illo, optio id
-      architecto perferendis expedita nulla quod cupiditate distinctio.
+      <h1>Blog</h1>
+      {data.map((item) => (
+        <div key={item._id}>
+          <h2>{item.title}</h2>
+          <p>{item.content}</p>
+          <p>{item.datePosted}</p>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default Blog;

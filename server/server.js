@@ -8,11 +8,11 @@ const cors = require("cors");
 const PORT = 5000;
 
 const corsOptions = {
-  origin: "localhost:5173",
+  origin: "https://localhost:5173",
   method: "GET, POST, DELETE, PATCH, PUT, HEAD",
   credentials: true,
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use("/api", router);
 
